@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MonoBehaviour_ts : MonoBehaviour {
@@ -13,39 +13,42 @@ public class MonoBehaviour_ts : MonoBehaviour {
     //Update()默认每秒执行60次，会根据运行的物理环境改变而发生改变
     //FixedUpdate(),固定执行次数，不会根据物理运行环境改变而改变
     //FixedUpdate和Update不可以返回
-    private void Awake()
-    {
-        Debug.Log("Awake()");
-    }
+    //private void Awake()
+    //{
+    //    Debug.Log("Awake()");
+    //}
   
-    private void OnEnable()
-    {
-        Debug.Log("OnEnable()");
-    }
+    //private void OnEnable()
+    //{
+    //    Debug.Log("OnEnable()");
+    //}
 
     private void Start()
     {
         Debug.Log("Start()");
+        //Invoke("TestInvoke", 2.0f);
+        //InvokeRepeating("TestInvoke", 3.0f, 1.0f);
+        //StartCoroutine(TestCoroutine());
     }
-   
-    private void FixedUpdate()//FixedUpdate和Update不可以返回
-    {
-        if (FixUpdateNumber==1)
-        {
-            Debug.Log("FixedUpdate()");
-            return;
-        }
-        FixUpdateNumber++;
-    }
-    private void Update()
-    {
-        if (UpdateNumber == 1)
-        {
-            Debug.Log("Update()");
-            return;
-        }
-        UpdateNumber++;
-    }
+
+    //private void FixedUpdate()//FixedUpdate和Update不可以返回
+    //{
+    //    if (FixUpdateNumber==1)
+    //    {
+    //        Debug.Log("FixedUpdate()");
+    //        return;
+    //    }
+    //    FixUpdateNumber++;
+    //}
+    //private void Update()
+    //{
+    //    if (UpdateNumber == 1)
+    //    {
+    //        Debug.Log("Update()");
+    //        return;
+    //    }
+    //    UpdateNumber++;
+    //}
 
 
     #endregion
@@ -95,10 +98,13 @@ public class MonoBehaviour_ts : MonoBehaviour {
     //鼠标点击事件要求游戏物体有碰撞器
 
 
-    //private void OnMouseDown()//鼠标点击游戏物体时触发
-    //{
-    //    Debug.Log("OnMouseDown()");
-    //}
+    private void OnMouseDown()//鼠标点击游戏物体时触发
+    {
+        Debug.Log("OnMouseDown()");
+        //CancelInvoke();
+        //StartCoroutine(TestCoroutine());
+        //StopAllCoroutines();
+    }
     //private void OnMouseEnter()//鼠标进入游戏物体时触发
     //{
     //    Debug.Log("OnMouseEnter()");
@@ -127,7 +133,61 @@ public class MonoBehaviour_ts : MonoBehaviour {
 
     #endregion
 
-        
+
+
+    #region//共有的方法
+
+    // Invoke();
+    //延迟调用方法
+    //Invoke("方法名"，延迟时间)
+
+    //延迟调用，并且重复执行该方法
+    //InvokeRepeating("方法名字"，第一次调用延迟时间，重复调用延迟时间);
+
+    //判断该方法是否被延时循环调用，返回值为bool值
+    //IsInvoking();
+
+    //取消所有延迟调用函数执行
+    //CancleInvoke();
+
+    //开启协同程序
+    //StartCoroutine(方法名());
+
+    //关闭一个协同程序
+    //StopCoroutine();
+
+    //关闭所有协同程序
+    //StopAllCoroutine();
+
+    //IEnumerator TestCoroutine()
+    //{
+    //    //yield return new  WaitForSeconds(2.0f);
+    //    //Debug.Log("TestCoroutine()");
+
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(2.0f);
+    //        Debug.Log("TestCoroutine()");
+    //    }
+    //}
+
+
+
+    //void TestInvoke()
+    //{
+    //    Debug.Log("TestInvoke()");
+    //    if (IsInvoking())
+    //    {
+    //        Debug.Log("IsInvoking()");
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("False");
+    //    }
+    //}
+    #endregion
+
+
 
     private void OnDisable()
     {
